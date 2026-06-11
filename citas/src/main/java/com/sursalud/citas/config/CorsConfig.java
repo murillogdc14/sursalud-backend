@@ -10,7 +10,10 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")          // en producción cambia "*" por la URL de Vercel
+                .allowedOrigins(
+                    "http://localhost:5173",
+                    "https://sursalud-frontend.vercel.app"  // cambia por tu URL real
+                )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
     }
